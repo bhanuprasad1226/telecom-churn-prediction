@@ -1,23 +1,4 @@
-"""
-telecom_churn_streamlit.py
 
-Interview-ready Streamlit app for Telecom Customer Churn Prediction.
-
-Changes:
-- Removed training and load buttons; models are loaded automatically at startup.
-- Removed evaluation dashboard and SHAP explainability.
-- Clean, minimal UI: select model, enter features, predict.
-- If model files are missing the app shows a short message explaining which files are needed.
-
-Usage:
-1) Place the pre-trained files (if available) in the app folder:
-   - model_pipeline.joblib (XGBoost pipeline)
-   - preprocessor.joblib (preprocessor used by DL models)
-   - ann_model.h5 (optional)
-   - cnn1d_model.h5 (optional)
-2) Install deps: pip install pandas scikit-learn xgboost joblib streamlit tensorflow
-3) Run: streamlit run telecom_churn_streamlit.py
-"""
 
 import os
 import joblib
@@ -248,5 +229,6 @@ if submit:
                 st.write('**Predicted churn:**', 'Yes' if proba>0.5 else 'No')
             except Exception as e:
                 st.error(f'CNN prediction failed: {e}')
+
 
 
